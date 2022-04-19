@@ -35,23 +35,3 @@
     {{ return(dbt_utils.default__dateadd(datepart, interval, from_date_or_timestamp)) }}
 
 {% endmacro %}
-
-{% macro athena__dateadd(datepart, interval, from_date_or_timestamp) %}
-
-    date_add(
-        '{{ datepart | replace("'", "") }}',
-        {{ interval }},
-        {{ from_date_or_timestamp }}
-        )
-
-{% endmacro %}
-
-{% macro presto__dateadd(datepart, interval, from_date_or_timestamp) %}
-
-    date_add(
-        '{{ datepart | replace("'", "") }}',
-        {{ interval }},
-        {{ from_date_or_timestamp }}
-        )
-
-{% endmacro %}
