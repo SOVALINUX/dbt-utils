@@ -1,5 +1,5 @@
 name: 'dbt_utils'
-version: '0.8.11'
+version: '0.8.12'
 
 require-dbt-version: [">=1.0.0", "<2.0.0"]
 
