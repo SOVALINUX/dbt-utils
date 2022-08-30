@@ -1,17 +1,13 @@
-{% macro test_not_null_proportion(model) %}
-  {{ return(adapter.dispatch('test_not_null_proportion', 'dbt_utils')(model, **kwargs)) }}
-{% endmacro %}
+{% test not_null_proportion(model, column_name, at_least, at_most=1, condition="1=1") %}
+  {{ return(adapter.dispatch('test_not_null_proportion', 'dbt_utils')(model, column_name, at_least, at_most, condition)) }}
+{% endtest %}
 
-{% macro default__test_not_null_proportion(model) %}
-
-{% set column_name = kwargs.get('column_name', kwargs.get('arg')) %}
-{% set at_least = kwargs.get('at_least', kwargs.get('arg')) %}
-{% set at_most = kwargs.get('at_most', kwargs.get('arg', 1)) %}
-
+{% macro default__test_not_null_proportion(model, column_name, at_least, at_most=1, condition="1=1") %}
 with validation as (
   select
     sum(case when {{ column_name }} is null then 0 else 1 end) / {{ dbt_utils.safe_cast('count(*)', dbt_utils.type_numeric() ) }} as not_null_proportion
   from {{ model }}
+  where {{condition}}
 ),
 validation_errors as (
   select
