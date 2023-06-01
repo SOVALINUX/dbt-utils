@@ -68,7 +68,7 @@ Check [dbt Hub](https://hub.getdbt.com/dbt-labs/dbt_utils/latest/) for the lates
    * [Code of Conduct](#code-of-conduct)
 
 <!-- Created by https://github.com/ekalinin/github-markdown-toc -->
-<!-- Added by: runner, at: Thu Feb  9 00:20:43 UTC 2023 -->
+<!-- Added by: runner, at: Thu Jun  1 18:03:33 UTC 2023 -->
 
 <!--te-->
 ----
